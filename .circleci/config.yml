@@ -32,7 +32,7 @@ workflows:
             - todomundo
           filters:
             branches:
-              only: /^release-.*/
+              only: /release-.*/
   workflow_por_tag:
     jobs:
       - todomundo
@@ -42,7 +42,6 @@ workflows:
           filters:            
             branches:
               ignore:
-                - /.*/
-                - /^release-.*/
+                - /release-.*/
             tags:
               only: /^v.*/
