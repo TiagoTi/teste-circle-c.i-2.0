@@ -1,9 +1,48 @@
 version: 2
 jobs:
-  build:
+  todomundo:
     docker:
       - image: alpine
     working_directory: ~/repo
     steps:
       - checkout
-      - run: ls -la
+      - run: echo "todo mundo"
+  por_release:
+    docker:
+      - image: alpine
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: echo "Por Release"
+  por_tag:
+    docker:
+      - image: alpine
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: echo "Por Tag"
+
+workflows:
+  version: 2
+  workflow_por_release:
+    jobs:
+      - todomundo
+      - por_release:
+          requires:
+            - todomundo
+          filters:
+            branches:
+              only: /^release-.*/
+  workflow_por_tag:
+    jobs:
+      - todomundo
+      - por_tag:
+          requires:
+            - todomundo
+          filters:            
+            branches:
+              ignore:
+                - /.*/
+                - /^release-.*/
+            tags:
+              only: /^v.*/
