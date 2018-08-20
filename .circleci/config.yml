@@ -45,6 +45,7 @@ workflows:
           filters:            
             branches:
               ignore:
-                - /.*/
+                - develop
+                - /feature-.*/
             tags:
               only: /v[0-9]+\.[0-9]+\.[0-9]+/
