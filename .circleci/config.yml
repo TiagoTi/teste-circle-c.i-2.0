@@ -29,8 +29,9 @@ jobs:
 
 workflows:
   version: 2
-  workflow_por_release:
+  construir-e-entregar:
     jobs:
+      - todomundo
       - por_release:
           requires:
             - todomundo
