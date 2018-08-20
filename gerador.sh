@@ -17,9 +17,9 @@ if [ $(( $VERSAO % 2 )) = 0 ]
 then
 	echo "TAG"
 	TAG=$(( $VERSAO / 2 ))
-	git add .
 	echo $TAG >> tags
 	echo $VERSAO >> changelog.txt
+	git add .
 	git commit -m "versao: 0.0.$VERSAO"
 	git push
 	git tag -a "v0.$TAG.$VERSAO"  -m "tag-version: 0.$TAG.$VERSAO"
