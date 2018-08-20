@@ -27,12 +27,7 @@ workflows:
   version: 2
   construir_e_entregar:
     jobs:
-      - todomundo:
-          filters:
-            branches:
-              ignore:
-                - develop
-                - /feature-.*/
+      - todomundo
       - por_release:
           requires:
             - todomundo
