@@ -7,10 +7,6 @@ jobs:
     steps:
       - checkout
       - run: echo "todo mundo"
-    branches:
-      ignore:
-        - develop
-        - /feature-.*/
 
   por_release:
     docker:
@@ -29,8 +25,14 @@ jobs:
 
 workflows:
   version: 2
-  workflow_por_release:
+  construir_e_entregar:
     jobs:
+      - todomundo:
+          filters:
+            branches:
+              ignore:
+                - develop
+                - /feature-.*/
       - por_release:
           requires:
             - todomundo
