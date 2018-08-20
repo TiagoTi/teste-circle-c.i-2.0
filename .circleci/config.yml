@@ -32,6 +32,7 @@ workflows:
             branches:
               ignore:
                 - develop
+                - master
                 - /feature-.*/
       - por_release:
           requires:
