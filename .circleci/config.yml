@@ -26,16 +26,12 @@ workflows:
   version: 2
   workflow_por_release:
     jobs:
-      - todomundo
       - por_release:
           requires:
             - todomundo
           filters:
             branches:
               only: /release-.*/
-  workflow_por_tag:
-    jobs:
-      - todomundo
       - por_tag:
           requires:
             - todomundo
