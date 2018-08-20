@@ -46,6 +46,6 @@ workflows:
           filters:            
             branches:
               ignore:
-                - /release-.*/
+                - /.*/
             tags:
               only: /v[0-9]+\.[0-9]+\.[0-9]+/
